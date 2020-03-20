@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Abstract:</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>(1) Department of Bioinformatics, Institute of Biochemistry and Biophysics, University of Tehran, Tehran, Iran </p>
+
+<p>(2) Department of Computer Engineering, Sharif University of Technology, Tehran, Iran</p>
+
+<p>(3) Department of Statis-tics, Allameh Tabataba&#39;i University, Tehran, Iran</p>
+
+<p>&ldquo;<a href="mailto:maleknias@gmail.com">maleknias@gmail.com</a>&rdquo;</p>
+
+<p>date: &ldquo;2020-03-16&rdquo;</p>
+
+<h2>Abstract:</h2>
+
+<p>This package has developed a tool for performing a novel pathway enrichment analysis based on Bayesian network (BNrich) to investigate the topology features of the pathways. This algorithm as a biologically intuitive, method, analyzes of most structural data acquired from signaling pathways such as causal relationships between genes using the property of Bayesian networks and also infer finalized networks more conveniently by simplifying networks in the early stages and using Least Absolute Shrinkage Selector Operator (LASSO). impacted pathways are ultimately prioritized the by Fisher’s Exact Test on significant parameters. Here, we provide an instance code that applies BNrich in all of the fields described above.</p>
+
+<!---
+- Compile from command-line
+Rscript -e "rmarkdown::render('sample.Rmd', c('html_document'), clean=FALSE)"
+-->
+
+<h1>Introduction</h1>
+
+<p>This document offers an introductory overview of how to use the package. The BNrich tool uses Bayesian Network (BN) in a new topology-based pathway analysis (TPA) method. The BN has been demonstrated as a beneficial technique for integrating and modeling biological data into causal relationships (1–4). The proposed method utilizes BN to model variations in downstream components (children) as a consequence of the change in upstream components (parents). For this purpose,  The method employs 187 KEGG human non-metabolic pathways (5–7) which their cycles were eliminated manually by a biological intuitive, as BN structures and gene expression data to estimate its parameters (8,9). The cycles of inferred networks were eliminated on the basis of biologically intuitive rules instead of using computing algorithms (10). The inferred networks are simplified in two steps; unifying genes and LASSO. Similarly, the originally continuous gene expression data is used to BN parameters learning, rather than discretized data (8). The algorithm estimates regression coefficients by continuous data based on the parameter learning techniques in the BN (11,12). The final impacted pathways are gained by Fisher’s exact test. This method can represent effective genes and biological relations in impacted pathways based on a significant level.</p>
+
+<h1>Quick Start</h1>
+
+<h2>Install BNrich</h2>
+
+<pre><code class="r">install.packages(&quot;BNrich_0.1.0.tar.gz&quot;, type=&quot;source&quot;, repos=NULL)
+library(&quot;BNrich&quot;)
+</code></pre>
+
+<h2>prepare essential data</h2>
+
+<p>At first, we can load all the 187 preprocessed KEGG pathways which their cycles were removed, the data frame includes information about the pathways and vector of pathway ID.</p>
+
+<pre><code class="r">destfile = tempfile(&quot;files&quot;, fileext = &quot;.rda&quot;)
+files &lt;- fetch_data_file()
+load(destfile)
+</code></pre>
+
+<p>Note that it&#39;s better to use (for example:) <code>destfile = &quot;./R/BNrich-start.rda&quot;</code> to save essential files permanently.   </p>
+
+<p>The input data should be as two data frames in states disease and (healthy) control. The row names of any data frame are KEGG geneID and the number of subjects in any of them should not be less than 20, otherwise the user may encounters error in <code>LASSO</code> step. Initially, we can load dataset example.
+The example data extracted from a part of <code>GSE47756</code> dataset, the gene expression data from colorectal cancer study (13).</p>
+
+<pre><code class="r">Data &lt;- system.file(&quot;extdata&quot;, &quot;Test_DATA.RData&quot;, package = &quot;BNrich&quot;, mustWork = TRUE)
+load(Data)
+head(dataH)
+</code></pre>
+
+<table><thead>
+<tr>
+<th></th>
+<th>H1</th>
+<th>H2</th>
+<th>H3</th>
+<th>H4</th>
+<th>H5</th>
+<th>H6</th>
+<th>H7</th>
+<th>H8</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>hsa:1</td>
+<td>3.37954</td>
+<td>3.3469</td>
+<td>3.78383</td>
+<td>3.35186</td>
+<td>3.2091</td>
+<td>3.40245</td>
+<td>4.06329</td>
+<td>3.43424</td>
+</tr>
+<tr>
+<td>hsa:100</td>
+<td>3.1147</td>
+<td>3.15981</td>
+<td>3.37842</td>
+<td>2.69868</td>
+<td>3.43759</td>
+<td>3.38588</td>
+<td>2.95406</td>
+<td>3.09631</td>
+</tr>
+<tr>
+<td>hsa:10000</td>
+<td>3.21876</td>
+<td>2.93611</td>
+<td>2.62708</td>
+<td>3.13507</td>
+<td>2.62864</td>
+<td>2.61367</td>
+<td>2.7336</td>
+<td>2.70867</td>
+</tr>
+<tr>
+<td>hsa:1001</td>
+<td>3.4549</td>
+<td>3.18683</td>
+<td>3.34896</td>
+<td>3.36903</td>
+<td>3.49353</td>
+<td>3.35175</td>
+<td>3.27893</td>
+<td>3.63678</td>
+</tr>
+<tr>
+<td>hsa:10010</td>
+<td>2.17522</td>
+<td>2.59843</td>
+<td>2.56868</td>
+<td>2.95009</td>
+<td>2.52181</td>
+<td>2.24635</td>
+<td>2.05092</td>
+<td>2.10438</td>
+</tr>
+<tr>
+<td>hsa:10013</td>
+<td>2.992</td>
+<td>2.94325</td>
+<td>3.22677</td>
+<td>2.87371</td>
+<td>3.063</td>
+<td>2.97679</td>
+<td>3.07247</td>
+<td>3.08168</td>
+</tr>
+</tbody></table>
+
+<pre><code class="r">head(dataD)
+</code></pre>
+
+<table><thead>
+<tr>
+<th></th>
+<th>D1</th>
+<th>D2</th>
+<th>D3</th>
+<th>D4</th>
+<th>D5</th>
+<th>D6</th>
+<th>D7</th>
+<th>D8</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>hsa:1</td>
+<td>3.29082</td>
+<td>3.15924</td>
+<td>3.45716</td>
+<td>3.15391</td>
+<td>3.29514</td>
+<td>3.36502</td>
+<td>3.63823</td>
+<td>3.22192</td>
+</tr>
+<tr>
+<td>hsa:100</td>
+<td>3.069</td>
+<td>2.97546</td>
+<td>2.99117</td>
+<td>2.88929</td>
+<td>3.00292</td>
+<td>2.94948</td>
+<td>2.93906</td>
+<td>3.36357</td>
+</tr>
+<tr>
+<td>hsa:10000</td>
+<td>2.68424</td>
+<td>3.24284</td>
+<td>3.57435</td>
+<td>2.46992</td>
+<td>4.57649</td>
+<td>3.87179</td>
+<td>2.94405</td>
+<td>3.54207</td>
+</tr>
+<tr>
+<td>hsa:1001</td>
+<td>3.27815</td>
+<td>2.91081</td>
+<td>3.53487</td>
+<td>2.95122</td>
+<td>2.67742</td>
+<td>2.72358</td>
+<td>3.10172</td>
+<td>3.07123</td>
+</tr>
+<tr>
+<td>hsa:10010</td>
+<td>2.68051</td>
+<td>3.22719</td>
+<td>3.58798</td>
+<td>2.61269</td>
+<td>3.72397</td>
+<td>3.29004</td>
+<td>2.5843</td>
+<td>2.95756</td>
+</tr>
+<tr>
+<td>hsa:10013</td>
+<td>3.05107</td>
+<td>2.86273</td>
+<td>3.06863</td>
+<td>3.05318</td>
+<td>3.04536</td>
+<td>2.92021</td>
+<td>3.12596</td>
+<td>3.0468</td>
+</tr>
+</tbody></table>
+
+<h1>Unify data, the first step of simplification</h1>
+
+<p>Initially, we need to unify gene products based on 187 imported signaling pathways (<code>mapkG</code> list) in two states disease (dataD) and control (dataH). This is the first simplification step, unifying nodes in signaling pathways with genes those exist in gene expression data.</p>
+
+<pre><code class="r">unify_results &lt;- unify_path(dataH, dataD, mapkG, pathway.id)
+</code></pre>
+
+<p>The <code>unify_path</code> function performs the following processes:
+• Split datasets into KEGG pathways
+• Delete all gene expression data are not in pathways
+• Removes all gene products in pathways are not in dataset platforms
+• Remove any pathways with the number of edges is less than 5 
+This function returns a list contain <code>data_h</code>,<code>data_d</code>,<code>mapkG1</code> and <code>pathway.id1</code>. <code>data_h</code> and <code>data_d</code> are lists contain data frames related to control and disease objects unified for any signaling pathways. The <code>mapkG1</code> is a list contains unified signaling pathways and <code>pathway.id1</code> is new pathway ID vector based on remained pathways.
+In the example dataset, the number of edges in the one pathway becomes less than 5 and are removed:</p>
+
+<pre><code class="r">length(mapkG)
+</code></pre>
+
+<pre><code>187
+</code></pre>
+
+<pre><code class="r">mapkG1 &lt;- unify_results$mapkG1
+length(mapkG1)
+</code></pre>
+
+<pre><code>186
+</code></pre>
+
+<p>As well, the number of edges reduces in the remaining pathways. In first pathway <code>hsa:01521</code> the number of edges from 230 reduces to 204:</p>
+
+<pre><code class="r">pathway.id[1]
+</code></pre>
+
+<pre><code>&quot;hsa:01521&quot;
+</code></pre>
+
+<pre><code class="r">mapkG[[1]]
+</code></pre>
+
+<pre><code>A graphNEL graph with directed edges 
+Number of Nodes = 79 
+Number of Edges = 230
+</code></pre>
+
+<pre><code class="r">pathway.id1 &lt;- unify_results$pathway.id1
+pathway.id1[1]
+</code></pre>
+
+<pre><code>&quot;hsa:01521&quot;
+</code></pre>
+
+<pre><code class="r">mapkG1[[1]]
+</code></pre>
+
+<pre><code>A graphNEL graph with directed edges
+Number of Nodes = 71 
+Number of Edges = 204
+</code></pre>
+
+<h1>BN: construct structures and estimate parameters</h1>
+
+<h2>construct BN structures</h2>
+
+<p>Now we can construct BN structures based on unified signaling pathways and consequently need the results of <code>unify_path</code> function.</p>
+
+<pre><code class="r">BN &lt;- BN_struct(unify_results$mapkG1)
+</code></pre>
+
+<p>The <code>BN_struct</code> function returns a list contains BNs structures reconstructed from all <code>mapkG1</code>.</p>
+
+<h2>The LASSO regression, the second step of simplification</h2>
+
+<p>Given that the data used is continuous, each node is modeled as a regression line on its parents (11,14). Thus, on some of these regression lines, the number of these independent variables is high, so in order to avoid the collinearity problem, we need to use the Lasso regression (15,16).
+We perform this function for any node with more than one parent, in all BNs achieved by <code>BN_struct</code> function, based on control and disease data obtained by <code>unify_results</code> function. </p>
+
+<pre><code class="r">data_h &lt;- unify_results$data_h
+data_d &lt;- unify_results$data_d
+LASSO_results &lt;- LASSO_BN(BN, data_h, data_d)
+</code></pre>
+
+<p>The LASSO_BN function returns a list contains two lists BN_H and BN_D are simplified BNs structures based on LASSO regression related to healthy and disease objects. This function lead to reduce number of edges too:</p>
+
+<pre><code class="r">nrow(arcs(BN[[1]]))
+</code></pre>
+
+<pre><code>204
+</code></pre>
+
+<pre><code class="r">nrow(arcs(LASSO_results$BN_H[[1]]))
+</code></pre>
+
+<pre><code>116
+</code></pre>
+
+<pre><code class="r">nrow(arcs(LASSO_results$BN_D[[1]]))
+</code></pre>
+
+<pre><code>116
+</code></pre>
+
+<h2>Estimate the BN parameters</h2>
+
+<p>Now we can estimate (learn) parameters for any BNs based on healthy and disease data lists.</p>
+
+<pre><code class="r">BN_H &lt;- LASSO_results$BN_H
+BN_D &lt;- LASSO_results$BN_D
+esti_results &lt;- esti_par(BN_H, BN_D, data_h, data_d)
+</code></pre>
+
+<p>The <code>esti_par</code> function returns a list contains four lists. The <code>BN_h</code>, <code>BN_d</code>, are lists of BNs which their parameters learned by control and disease objects data. The <code>coef_h</code> and <code>coef_d</code> are lists of parameters of <code>BN_h</code> and <code>BN_d</code>.
+As you can see in below, node <code>hsa:1978</code> in the first BN has one parent. The coefficient in control (healthy) data is <code>0.6958609</code> and in disease data is <code>1.1870730</code>.</p>
+
+<pre><code class="r">esti_results$BNs_h[[1]]$` hsa:1978`
+</code></pre>
+
+<pre><code>Parameters of node hsa:1978 (Gaussian distribution)
+Conditional density: hsa:1978 | hsa:2475
+Coefficients:
+(Intercept)     hsa:2475  
+  2.8841264    0.6958609  
+Standard deviation of the residuals: 0.3489612 
+</code></pre>
+
+<pre><code class="r">esti_results$BNs_d[[1]]$`hsa:1978`
+</code></pre>
+
+<pre><code>Parameters of node hsa:1978 (Gaussian distribution)
+Conditional density: hsa:1978 | hsa:2475
+Coefficients:
+(Intercept)     hsa:2475  
+  0.9046357   1.1870730  
+Standard deviation of the residuals: 0.2713789
+</code></pre>
+
+<h1>Testing the equality BNs parameters</h1>
+
+<h2>Variance of BNs parameters</h2>
+
+<p>We require the variance of the BNs parameters to perform the T-test between the corresponding parameters.</p>
+
+<pre><code class="r">BN_h &lt;- esti_results$BNs_h
+BN_d &lt;- esti_results$BNs_d
+coef_h &lt;- esti_results$coef_h
+coef_d &lt;- esti_results$coef_d
+var_mat_results&lt;- var_mat (data_h, coef_h, BN_h, data_d, coef_d, BN_d)
+</code></pre>
+
+<p>The <code>var_mat</code> function returns a list contains two lists <code>var_mat_Bh</code> and <code>var_mat_Bd</code> which are the variance-covariance matrixes for any parameters of <code>BN_h</code> and <code>BN_d</code>. The variance-covariance matrixes for the fifth node,<code>hsa:1978</code>, in first BN in two states control and disease is as follow: </p>
+
+<pre><code class="r">(var_mat_results$var_mat_Bh[[1]])[5]
+</code></pre>
+
+<pre><code>          [,1]      [,2]
+[1,] 10.177073      -3.630152
+[2,] -3.630152      1.296990
+</code></pre>
+
+<pre><code class="r">(var_mat_results$var_mat_Bd[[1]])[5]
+</code></pre>
+
+<pre><code>          [,1]      [,2]
+[1,]  3.549338      -1.0392040
+[2,] -1.039204      0.3053785
+</code></pre>
+
+<h2>Testing the equality BNs parameters</h2>
+
+<p>T-test perfoms between any corresponding parameters between each pair of learned BNs, <code>BN_h</code> and <code>BN_d</code>, in disease and control states. Assumptions are unequal sample sizes and unequal variances for all samples.</p>
+
+<pre><code class="r">var_mat_Bh &lt;- var_mat_results $var_mat_Bh
+var_mat_Bd &lt;- var_mat_results $var_mat_Bd
+Ttest_results &lt;- parm_Ttest(data_h, coef_h, BN_h, data_d, coef_d, BN_d, var_mat_Bh, var_mat_Bd, pathway.id1)
+head(Ttest_results)
+</code></pre>
+
+<table><thead>
+<tr>
+<th>From</th>
+<th>To</th>
+<th>pathway.number</th>
+<th>pathwayID</th>
+<th>Pval</th>
+<th>coefficient in disease</th>
+<th>coefficient in control</th>
+<th>fdr</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>intercept</td>
+<td>hsa:2065</td>
+<td>1</td>
+<td>hsa:01521</td>
+<td>0.605294</td>
+<td>4.893503</td>
+<td>5.535163</td>
+<td>6.72E-01</td>
+</tr>
+<tr>
+<td>hsa:7039</td>
+<td>hsa:2065</td>
+<td>1</td>
+<td>hsa:01521</td>
+<td>2.04E-05</td>
+<td>1.072296</td>
+<td>-0.21107</td>
+<td>6.95E-05</td>
+</tr>
+<tr>
+<td>hsa:1950</td>
+<td>hsa:2065</td>
+<td>1</td>
+<td>hsa:01521</td>
+<td>0.154223</td>
+<td>0.125977</td>
+<td>-0.21675</td>
+<td>2.11E-01</td>
+</tr>
+<tr>
+<td>hsa:4233</td>
+<td>hsa:2065</td>
+<td>1</td>
+<td>hsa:01521</td>
+<td>0.083296</td>
+<td>-0.63254</td>
+<td>-0.33154</td>
+<td>1.23E-01</td>
+</tr>
+<tr>
+<td>hsa:3084</td>
+<td>hsa:2065</td>
+<td>1</td>
+<td>hsa:01521</td>
+<td>0.135981</td>
+<td>-0.55586</td>
+<td>-0.18792</td>
+<td>1.89E-01</td>
+</tr>
+<tr>
+<td>hsa:9542</td>
+<td>hsa:2065</td>
+<td>1</td>
+<td>hsa:01521</td>
+<td>0.373051</td>
+<td>-0.39859</td>
+<td>-0.11334</td>
+<td>4.49E-01</td>
+</tr>
+</tbody></table>
+
+<p>This function returns a data frame contains T-test results for all parameters in all final BNs. The row that is intercept in <code>From</code> variable, shows significance level for gene product that is shown in <code>To</code> variable. The rest of the data frame rows shows significance level for any edge of networks.</p>
+
+<h1>Identification of enriched pathways</h1>
+
+<p>In the last step we can determine enriched pathways by own threshold on <code>p-value</code> or <code>fdr</code>. Hence we run the Fisher&#39;s exact test for any final pathways. As stated above, the <code>Ttest_results</code> is a data frame contains T-test results for all parameters in final BNs achieved by <code>parm_Ttest</code> function and <code>fdr.value</code> A numeric threshold to determine significant parameters (default is 0.05).</p>
+
+<pre><code class="r">BNrich_results &lt;- BNrich(Ttest_results, pathway.id1, PathName_final, fdr.value = 0.05)
+head(BNrich_results)
+</code></pre>
+
+<table><thead>
+<tr>
+<th>pathwayID</th>
+<th>p.value</th>
+<th>fdr</th>
+<th>pathway.number</th>
+<th>Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>hsa:05016</td>
+<td>2.66E-17</td>
+<td>2.47E-15</td>
+<td>123</td>
+<td>Huntington disease</td>
+</tr>
+<tr>
+<td>hsa:05202</td>
+<td>1.64E-17</td>
+<td>2.47E-15</td>
+<td>156</td>
+<td>Transcriptional misregulation in cancer</td>
+</tr>
+<tr>
+<td>hsa:05012</td>
+<td>2.92E-16</td>
+<td>1.81E-14</td>
+<td>121</td>
+<td>Parkinson disease</td>
+</tr>
+<tr>
+<td>hsa:05010</td>
+<td>1.55E-11</td>
+<td>7.19E-10</td>
+<td>120</td>
+<td>Alzheimer disease</td>
+</tr>
+<tr>
+<td>hsa:04144</td>
+<td>3.25E-08</td>
+<td>1.21E-06</td>
+<td>22</td>
+<td>Endocytosis</td>
+</tr>
+<tr>
+<td>hsa:04714</td>
+<td>2.99E-07</td>
+<td>9.26E-06</td>
+<td>72</td>
+<td>Thermogenesis</td>
+</tr>
+</tbody></table>
+
+<h1>Session Info</h1>
+
+<p>The following package and versions were used in the production of this vignette.</p>
+
+<pre><code> R version 3.6.1 (2019-07-05)
+ Platform: x86_64-w64-mingw32/x64 (64-bit)
+ Running under: Windows 7 x64 (build 7601) Service Pack 1
+
+ Matrix products: default
+
+ locale:
+ [1] LC_COLLATE=English_United Kingdom.1252  LC_CTYPE=English_United Kingdom.1252   
+ [3] LC_MONETARY=English_United Kingdom.1252 LC_NUMERIC=C                           
+ [5] LC_TIME=English_United Kingdom.1252    
+
+ attached base packages:
+ [1] stats     graphics  grDevices utils     datasets  methods   base     
+
+ other attached packages:
+ [1] BNrich_0.1.0
+
+ loaded via a namespace (and not attached):
+  [1] Rcpp_1.0.2          codetools_0.2-16    lattice_0.20-38     corpcor_1.6.9      
+  [5] foreach_1.4.7       glmnet_2.0-18       digest_0.6.20       grid_3.6.1         
+  [9] stats4_3.6.1        evaluate_0.14       graph_1.63.0        Matrix_1.2-17      
+ [13] rmarkdown_1.14      bnlearn_4.5         iterators_1.0.12    tools_3.6.1        
+ [17] parallel_3.6.1      xfun_0.8            yaml_2.2.0          rsconnect_0.8.15   
+ [21] compiler_3.6.1      BiocGenerics_0.31.5 htmltools_0.3.6     knitr_1.24
+
+</code></pre>
+
+<h1>References:</h1>
+
+<ol>
+<li> Yu J, Smith VA, Wang PP, Hartemink AJ, Jarvis ED. Advances to Bayesian network inference for generating causal networks from observational biological data. Bioinformatics . 2004 Dec 12;20(18):3594–603.</li>
+<li> Gendelman R, Xing H, Mirzoeva OK, Sarde P, Curtis C, Feiler HS, et al. Bayesian network inference modeling identifies TRIB1 as a novel regulator of cell-cycle progression and survival in cancer cells. Cancer Res. 2017;77(7):1575–85. </li>
+<li> Luo Y, El Naqa I, McShan DL, Ray D, Lohse I, Matuszak MM, et al. Unraveling biophysical interactions of radiation pneumonitis in non-small-cell lung cancer via Bayesian network analysis. Radiother Oncol . 2017 Apr 1 ;123(1):85–92. </li>
+<li> Agrahari R, Foroushani A, Docking TR, Chang L, Duns G, Hudoba M, et al. Applications of Bayesian network models in predicting types of hematological malignancies. Sci Rep . 2018 Dec 3;8(1):6951. </li>
+<li> Zhi-wei J, Zhen-lei Y, Cai-xiu Z, Li-ying W, Jun L, Hong-li W, et al. Comparison of the Network Structural Characteristics of Calcium Signaling Pathway in Cerebral Ischemia after Intervention by Different Components of Chinese Medicine. J Tradit Chinese Med. 2011;31(3):251–5. </li>
+<li> Lou S, Ren L, Xiao J, Ding Q, Zhang W. Expression profiling based graph-clustering approach to determine renal carcinoma related pathway in response to kidney cancer. Eur Rev Med Pharmacol Sci. 2012;16(6):775–80. </li>
+<li> Fu C, Deng S, Jin G, Wang X, Yu ZG. Bayesian network model for identification of pathways by integrating protein interaction with genetic interaction data. BMC Syst Biol. 2017;11. </li>
+<li> Isci S, Ozturk C, Jones J, Otu HH. Pathway analysis of high-throughput biological data within a Bayesian network framework. 2011;27(12):1667–74.</li>
+<li>Korucuoglu M, Isci S, Ozgur A, Otu HH. Bayesian pathway analysis of cancer microarray data. PLoS One. 2014;9(7):1–8.</li>
+<li>Spirtes P, Richardson T. Directed Cyclic Graphical Representations of Feedback Models. Proc Elev Conf Uncertain Artif Intell. 1995;1–37. </li>
+<li>Neapolitan RE. Learning Bayesian networks. first. Chicago: Pearson Prentice Hall; 2004. 291–425 p. </li>
+<li>Scutari M. Learning Bayesian Networks with the bnlearn R Package. J Stat Softw. 2010;35(3):1–22. </li>
+<li>Hamm A, Prenen H, Van Delm W, Di Matteo M, Wenes M, Delamarre E, et al. Tumour-educated circulating monocytes are powerful candidate biomarkers for diagnosis and disease follow-up of colorectal cancer. Gut. 2016;65(6):990–1000. </li>
+<li>Nagarajan R, Scutari M, Lèbre S. Bayesian Networks in R . New York, NY: Springer New York; 2013 [cited 2018 Apr 17].</li>
+<li>Tibshirani R. The lasso method for variable selection in the cox model. Stat Med. 1997;16(4):385–95. </li>
+<li>Buhlmann P, Geer S van de. Statistics for high-dimensional data: Methods, Theory and Applications . Springer Series in Statistics. 2011. 7–34 p.</li>
+</ol>
+
+</body>
+
+</html>
